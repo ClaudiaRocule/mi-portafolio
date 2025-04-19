@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/fonts/poppins/poppins.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/scroll.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- script JS -->
+    <script src="assets/js/menu.js" defer></script>
+
+    <title>Portafolio Claudia Rocule</title>
+</head>
+<body>
+    <!-- METODO BEM -->
+    <!-- Layout principal (lo que contiene todo el cotenido de la pagina)-->
+     <div class="layout">
+
+        <!-- Barra lateral (info del usuario) -->
+         <aside class="layout__aside">
+
+            <section class="aside__user-info">
+                <!--Informacion general usuario -->
+                <div class="user-info__general">
+                    <div class="user-info__container-image">
+                        <img src="assets/img/yo.jpg" class="user-info__image"  alt="Foto de perfil del usuario" style="width: 200px; height: auto;">
+                    </div>
+                    <h2 class="user-info__name">Claudia Roculé</h2>
+                    <h4 class="user-info__job">Desarroladora Web</h4>
+                </div>
+
+                <!-- Menu de navegacion -->
+
+                <nav class="layout__menu">
+                    <ul class="menu__list">
+
+                        <li class="menu__option">
+                            <a href="index.html"  class="menu__link ">
+                                <i class="menu__icon fa-solid fa-house"></i>
+                                <span class="menu__overlay">Home</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu__option">
+                            <a href="sobre-mi.html"  class="menu__link menu__link--active">
+                                <i class="menu__icon fa-solid fa-user"></i>
+                                <span class="menu__overlay">Sobre mi</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu__option">
+                            <a href="curriculum.html"  class="menu__link">
+                                <i class="menu__icon fa-solid fa-graduation-cap"></i>
+                                <span class="menu__overlay">Curriculum</span>
+                            </a>
+                        </li>
+
+
+                        <li class="menu__option">
+                            <a href="portafolio.html"  class="menu__link">
+                                <i class="menu__icon fa-solid fa-briefcase"></i>
+                                <span class="menu__overlay">Portafolio</span>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="menu__option">
+                            <a href="contacto.html"  class="menu__link">
+                                <i class="menu__icon fa-solid fa-envelope"></i>
+                                <span class="menu__overlay">Contacto</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <!-- Links a redes sociales -->
+                 <div class="user-info__links">
+                    <ul class="links__social">
+
+
+                        <li class="social__option">
+                            <a href="https://www.linkedin.com/in/claudiaroculemendez/" class="social__link" target="_blank">
+                                <i class="social__icon fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                 </div>
+
+                <!-- Boton descarga del curricullum -->
+                 
+                <div class="user-info__buttons">
+                    <a href="#" class="user-info__btn">Descargar CV</a>
+                 </div>
+
+
+                <!-- Pie de pagina -->
+
+                <footer class="user-info__footer">
+                    &copy; 2025 Claudia Roculé Web
+
+                </footer>
+        
+            </section>
+
+         </aside>
+
+         <!--  MENU RESPONSIVE -->
+
+         <div  class="layout__menu-toggle">
+            <i class=" menu-toggle__icon fa-solid fa-bars"></i>
+            <i class=" menu-toggle__icon fa-solid fa-xmark"></i>
+         </div>
+
+
+         <!-- Contenido principal -->
+          <main class="layout__content">
+
+            <section class="content__page content__about">
+                <!-- ESTE CONTENIDO CAMBIA EN CADA PAGINA DEL SITIO WEB -->
+
+                <header class="about__header">
+                    <h1 class="about__title">Sobre<span class="title__color"> MI</span>
+                    </h1>
+                </header>
+
+                <section class="about__personal-info">
+                    <article class="personal-info__bio">
+                        <p class="persona-info__description">
+                            Soy una persona curiosa por naturaleza, amante del aprendizaje continuo y siempre en busca de nuevos desafíos que me permitan crecer y aportar soluciones innovadoras.
+                            La programación es uno de los pilares de mi desarrollo personal y profesional; disfruto explorando diferentes maneras de interactuar con ella, experimentando y desarrollando proyectos que integran creatividad y funcionalidad.
+                            Además, tengo una fuerte inclinación por el diseño y el arte como medios para comunicar y expresar ideas, emociones y situaciones. 
+                            Los colores, las formas y su capacidad para conectar a las personas siempre han sido una fuente de inspiración para mí.
+                        </p>
+                    </article>
+                    <div class="personal-info__data">
+                        <ul class="personal-info__list">
+
+                            <li class="personal-info__option">
+                                <span class="personal-info__title">Telefono</span>
+                                <span class="personal-info__value">622889856</span>
+                            </li>
+
+
+                            <li class="personal-info__option">
+                                <span class="personal-info__title">Correo</span>
+                                <span class="personal-info__value">csaaas@hotmail.com</span>
+                            </li>
+
+                            
+                            
+                            <li class="personal-info__option">
+                                <span class="personal-info__title">Direccion</span>
+                                <span class="personal-info__value">Mijas-Costa, Málaga</span>
+                            </li>
+
+
+                            <li class="personal-info__option">
+                                <span class="personal-info__title">Pais</span>
+                                <span class="personal-info__value">España</span>
+                            </li>
+                            
+
+                            <li class="personal-info__option">
+                                <span class="personal-info__title">Idioma</span>
+                                <span class="personal-info__value">Español</span>
+                            </li>
+                            
+
+                        </ul>
+                    </div>
+
+                </section>
+
+
+                <section class="about__services">
+                   <header class="services__header">
+                        <h2 class="services__title">Lo que <span class="title__color">Hago</span>
+                        </h2>
+                   </header> 
+                   <div class="services__container">
+
+                        <article class="services__service">
+                            <div class="service__icon">
+                                <i class="service__real-icon fa-solid fa-computer"></i>
+                            </div>
+                            <div class="service__content">
+                                <h3 class="service__title">Desarrollo Web</h3>
+                                <p class="service__description">
+                                    
+                                    
+                                    Transformo ideas en experiencias digitales únicas.<br>
+                                    Diseño y desarrollo sitios web modernos, adaptativos y optimizados para brindar la mejor experiencia al usuario.<br> 
+                                    Desde páginas informativas hasta aplicaciones web complejas, me especializo en crear soluciones personalizadas que combinan funcionalidad y estética. <br> <br>
+                                    
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="services__service">
+                            <div class="service__icon">
+                                <i class="service__real-icon fa-solid fa-code"></i>
+                            </div>
+                            <div class="service__content">
+                                <h3 class="service__title">Programación</h3>
+                                <p class="service__description">
+                                    En mi trayectoria en el mundo de la programación, he adquirido un sólido dominio de diversas herramientas y tecnologías que me permiten abordar proyectos con un enfoque integral, eficiente y creativo.<br>
+                                    Mi enfoque combina precisión técnica, creatividad y pasión por aprender continuamente, permitiéndome trabajar en proyectos que no solo cumplan con los objetivos establecidos, sino que también superen las expectativas.    
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="services__service">
+                            <div class="service__icon">
+                                <i class="service__real-icon fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <div class="service__content">
+                                <h3 class="service__title">Servicios Claves</h3>
+                                <p class="service__description">
+                                     
+
+                                    <span class="service__description-ex">C</span>reación de sitios web responsivos y adaptados a cualquier dispositivo.<br>
+
+                                    <span class="service__description-ex">O</span>ptimización de rendimiento y velocidad. <br>
+
+                                    <span class="service__description-ex">I</span>ntegración de tecnologías modernas para garantizar escalabilidad y seguridad. <br> 
+
+                                    <span class="service__description-ex">S</span>oluciones personalizadas según las necesidades de tu proyecto. <br> 
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <!-- <article class="services__service">
+                            <div class="service__icon">
+                                <i class="service__real-icon fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <div class="service__content">
+                                <h3 class="service__title">Formación</h3>
+                                <p class="service__description">
+                                    Mi experiencia incluye:<br> 
+
+                                    <span class="service__description-ex">Figma: </span>Experiencia en el diseño de interfaces de usuario (UI) y prototipos interactivos, combinando creatividad con funcionalidad para ofrecer soluciones visualmente atractivas y centradas en el usuario.<br> 
+
+                                    <span class="service__description-ex">HTML y CSS: </span>Dominio en la estructuración y estilización de páginas web, creando diseños responsivos y adaptados a diferentes dispositivos. <br> 
+
+                                    <span class="service__description-ex">JavaScript: </span>Capacidad de desarrollar funcionalidades interactivas, aplicaciones dinámicas y experiencias de usuario fluidas. <br> 
+
+                                    <span class="service__description-ex">PHP & MySQL </span>Experiencia en el desarrollo del lado del servidor y en la gestión de bases de datos, diseñando sistemas robustos y escalables. <br> 
+                                </p>
+                            </div>
+                        </article> -->
+
+
+                        <!-- <article class="services__service">
+                            <div class="service__icon">
+                                <i class="service__real-icon fa-solid fa-terminal"></i>
+                            </div>
+                            <div class="service__content">
+                                <h4 class="service__title">Administracion de Sistemas</h4>
+                                <p class="service__description">
+            
+                                    Garantizo que tus sistemas funcionen de manera eficiente, segura y sin interrupciones. Con experiencia en la gestión de infraestructuras de TI, ofrezco soluciones que optimizan el rendimiento, la disponibilidad y la seguridad de tus recursos tecnológicos.
+                                    Servicios clave:
+                                    
+                                        - Configuración y mantenimiento de servidores.
+                                        - Gestión de redes e infraestructuras tecnológicas.
+                                        - Implementación de medidas de seguridad para proteger tus datos.
+                                        - Resolución de incidencias y soporte técnico personalizado.
+                                        - Monitorización y optimización de sistemas para un rendimiento continuo.
+
+
+
+                                     
+                                </p>
+                            </div>
+                        </article> -->
+
+                   </div>
+
+                </section>
+
+        
+
+            </section>
+
+
+          </main>
+
+     </div>
+    
+    estudios
+</body>
+</html>

@@ -1,0 +1,995 @@
+/* DEFINICION VARIABLES */
+:root{
+    --color-principal: #ffffff;
+    --color-secondary: #997a31;
+    --color-background-original: #f2f7f9;
+    --color-background: #0c0c0c;
+    --color-transparent: transparent;
+
+    --color-icon: #B5B6B7;
+    --color-titles: #222222;
+    --color-subtitles: #888;
+    --color-text: #555;
+    --color-border-reviews: #e5e6e7;
+    --color-company: #a5a6a7;
+    --color-scrollbar: #d3d3d4;
+    --color-background-scrollbar: #eee;
+    --color-background-certificate: #f5f5f5;
+    --color-background-contact: #fcfcfc;
+}
+
+/* ESTILOS GENERALES */
+
+html{
+    font-size: 10px;
+}
+
+body{
+    width: 100%; /*es muy importante para que en todo momento el ancho ocupe el 100% de la pagina*/
+    height: 100%; /*para que la altura se adape al contenido lo tengo que poner en auto*/
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 1.5rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    overflow: hidden;/*lo aplico para que no haga scroll en la web*/
+}
+
+
+h1, h2, h3, h4, h5, h6{
+    color: var(--color-titles);
+    }
+/* IMAGEN DE FONDO */
+
+body {
+    background-image: url("../img/fondo777.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Filtro de opacidad con fondo */
+    background-blend-mode: multiply;
+     /*si quisiera mover mi imagen pondria un "background-position: x y" y me moveria con equis "x"(arriba o (-)abajo) y con "y"(derecha o(-)izquierda)
+    ejemplo: background-position: -20 -120; */
+}
+    
+
+
+/* ESTRUCTURA PRINCIPAL */
+
+.layout{
+    position:relative;
+    min-width: 1290px;
+    width: 75%;
+    height: 76vh; /*por que vh y no %, por que le estoy diciendo que sea un 80% de la altura del navegador*/
+    min-height: 76vh;
+    margin: 12vh auto; /*pone 10vh arriba y abajo de magen a la caja del layoud, mas la altura total de 80vh que ya habiamos puesto hacen los 100%*/
+    background-color: var(--color-principal);
+    
+    display:grid;
+    grid-template-areas:
+    "aside content"; /*aqui le indico cuantas areas va a tener mi grid o cuadricula de la web, aqui solo hay dos pero podroamos tener las que quisieramos*/
+    grid-template-columns: 30% 70%;/*lo que hago es darle un tamano "de anchura" a cada area, 30% aside y 70% al content*/
+                                    /* grid-template-rows: ; se usaria para cada fila, en este caso solo tenemos una*/
+
+
+
+   /* Sombra detras del layout */
+   border-radius: 4rem;
+   box-shadow: 0 0 100px -5px rgba(0, 0, 0, 1); /*va a tener un desplazamiento en "x de 0"
+    en "y de 0" "100px de difuminado" y para que no este solo alrededor 
+    la vamos a desplazar un poquito hacia arriba con "-5px" 
+    por ultimo le pondremos un color rgba el ultimo seria la opacidad de la sombra "1" */
+
+}
+
+/* BARRA LATERAL ROSA */
+.layout__aside{
+    grid-area: aside; /*de esta manera vinculo el area que habia puesto en el layout*/
+    
+    border-radius: 4rem 0 0 4rem;
+    overflow: auto;/*por si sucede que en algun momento hay algun tipo de scroll dentro del area*/
+    overflow-x: hidden;/*esto significa que todo lo que sobresalga a niver "lateral" va a ser ocultado como poe ejemplo la pinta de una imagen*/
+    
+}
+
+.aside__user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    min-height: 100%;
+    min-width: 30rem;
+    
+    background-color: var(--color-secondary);
+    color: inherit;  
+}
+
+.user-info__container-image{
+    position: relative;
+    display: inline-block;
+    width: 18rem;
+    margin-top: 7rem;
+    z-index: 1;/*esto significa que esta en la capa uno*/
+   
+    /* overflow: hidden; para que la imagen se adapte al contenedor */
+}
+
+.user-info__image{
+    width: 100%; /*de esta manera tendra el 100% del contenedor que la contenga*/
+    background-color: var(--color-principal); /*por si no se carga la imagen tendria un fondo blanco*/
+    border: 3px solid var(--color-principal);
+    border-radius: 20rem;
+}
+
+.user-info__container-image::after{
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 9%;
+    z-index: -1;/*esto significa que esta detras de la capa uno*/
+    width: 100%;
+    height: 100%;
+    background-image: repeating-radial-gradient(circle, #fff 0.1px,transparent 100%);
+    background-size: 0.6rem 0.6rem;
+    opacity: 0.2;
+    background-color: transparent;
+    border-radius: 30rem;  
+}
+
+.user-info__name{
+    margin-top: 2,6rem;
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    
+}
+
+.user-info__job{
+    font-size: 1.7rem;
+    font-weight: 200;
+    color: var(--color-principal);
+}
+
+.user-info__links{
+    margin-bottom: 3.6rem; /*margen inferior para que se separe de los elementos de abajo*/
+    
+}
+
+.links__social{
+    margin-top: 3.6rem; /*para que se separe de los elementos de arriba*/
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    
+}
+.social__option{
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
+    line-height: 3rem;
+    opacity: 1;
+    border-radius: 3rem;
+    transition: all 300ms ease-in-out;
+}
+.social__option:hover{
+    opacity: 1.5;
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+
+.social__icon{
+    color: var(--color-principal);
+    font-size: 3rem;
+}
+
+.user-info__buttons{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.user-info__btn{
+    padding: 3rem;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    border: 2px solid var(--color-principal);
+    border-radius: 3.2rem;
+    color: var(--color-principal);
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.25); /*0 despazamiento horizontal, 10px desplazamiento vertical, 10px desenfoque o difuminado de la sombra, -8 la expancion de la sombra*/
+    transition: all 300ms ease-in-out;
+}
+
+.user-info__btn:hover{
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+}
+
+.user-info__footer{
+    position: absolute; /*para que se quede fijo ahi abajo*/
+    bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--color-principal);
+}
+
+
+
+/* CONTENEDOR PRINCIPAL */
+.layout__content{
+    grid-area: content;/*de esta manera vinculo el area que habia puesto en el layout*/
+    height: 100%;
+    min-height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: 0 4rem 4rem 0;
+
+}
+
+.content__page{
+    min-height: 100%;
+    background-color: var(--color-principal);
+    border-radius: 3.2rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*centra los elementos a lo alto(verticalmente)*/
+    justify-content: center; /*centra los elementos a lo ancho(horizontalmente)*/
+    
+}
+
+
+.page__name{
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
+
+.page__job{
+    font-size: 2.1rem;
+    font-weight: lighter;
+    color: var(--color-subtitles);
+}
+
+
+
+
+/*MENU NAVEGACION LATERAL*/
+.layout__menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -10.5rem;
+    min-width: 11rem;
+    background-color: var(--color-transparent);
+}
+
+.menu__list{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 60%;
+    min-height: 32rem;
+    padding: 2rem 0 ; /*2rem(primer parametro) actua colocando espacio arriba y abajo y 0 (segundo parametro) a derecha e izquierda*/
+    margin-left: 2.5rem;
+    background-color: var(--color-principal);
+    box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, 0.15);
+    border-radius: 6rem;
+}
+
+.menu__option{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
+.menu__icon{
+color: var(--color-icon);
+font-size: 2.8rem;
+transition: all 300ms ease-in-out;
+}
+
+.menu__option:hover .menu__icon,
+.menu__link--active .menu__icon{
+    color: var(--color-secondary);
+}
+
+.menu__overlay{
+    position: absolute;
+    right: 0;
+    margin-top: -3rem;
+    display: block;
+    opacity: 0;
+    padding: 0.5rem 1rem;
+    color: var(--color-principal);
+    background-color: var(--color-secondary);
+    white-space: nowrap; /*para que no haya un salto de linea entre dos palabras)*/
+    transition: all 300ms ease-in-out;
+}
+
+.menu__option:hover .menu__overlay{
+    opacity: 1;
+    right: 100%;
+
+}
+
+
+/*ESTILOS GENERALES (SOBRE MI),(CURRICULUM) */
+
+.content__about,
+.content__resume,
+.content__portfolio,
+.content__contact{
+    display: block;
+    height: 100%;
+    min-height: 100%;
+    padding: 6rem;
+    padding-right: 3rem;
+    overflow: auto;  
+}
+
+.about__header,
+.resume__header,
+.porfolio__header,
+.contact__header{
+    display: inline-block;
+    margin-bottom: 4,5rem;
+}
+
+.about__title,
+.resume__title,
+.porfolio__title,
+.contact__title{
+   font-size: 3.2rem;
+   position: relative;
+   padding-bottom: 2rem;
+}
+
+.about__title::after,
+.resume__title::after,
+.porfolio__title::after,
+.contact__title::after{
+    content: "";
+    position: absolute;
+    top: 2rem;
+    right: -2.5rem;
+    width: 5rem;
+    height: 3rem;
+    background-image: repeating-radial-gradient(circle, var(--color-secondary), var(--color-secondary) 1px, transparent 0, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.5;
+    
+}
+/* compartido efector color titulos */
+.title__color,
+.subtitle__color{
+    color: var(--color-secondary);
+}
+
+/* INFORMACION PERSONAL */
+
+.about__personal-info{
+    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.personal-info__bio{
+    flex-basis: 65%; /*el espacio horizontal que ocupa la caja de toda la pantalla*/
+    text-align: justify;/* Asegura que el texto esté distribuido uniformemente */
+    text-justify: inter-word; /* Ajusta el espacio entre las palabras para mejorar la distribucio*/
+    margin-right: 1rem;
+}
+
+.persona-info__description{
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+
+.personal-info__data{
+    flex-basis: 35%; /*el espacio horizontal que ocupa la caja de toda la pantalla*/
+    padding: 0 1.5rem; /*siendo 0 derecha e izquierda y 1.5rem arriba y abajo*/
+}
+
+.personal-info__option{
+    margin-bottom: 2rem;
+}
+
+.personal-info__title{
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+
+/*estilos generales compartidos 
+SERVIVIOS/REVIEWS/CLIENTES/PRECIOS/EXTRA */
+
+.about__services{
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.services__header,
+.resume__subheader,
+.contact__form-header{
+    display: inline-block;
+    padding-right: 1.2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.services__title,
+.resume__subtitle,
+.form-header__title{
+    font-size: 2.1rem;
+}
+
+.services__title::after,
+.resume__subtitle::after,
+.form-header__title::after{
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    right: -0;
+    width: 3rem;
+    height: 2rem;
+    background-image: repeating-radial-gradient(circle, var(--color-secondary), var(--color-secondary) 1px, transparent 0, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.5;
+}
+
+/* fin de estilos compartidos */
+
+
+/* SERVICIOS */
+.services__container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.services__service{
+    flex-basis: calc(50% - 3rem);/*me permite distribuir el espacio al 50% entre las dos columnas incluyendo los 3rem de margen derecho*/
+    margin-right: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.service__real-icon{
+    font-size: 3.8rem;
+    color: var(--color-secondary);
+
+}
+
+.service__title{
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.service__description{
+    font-size: 1.5rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.service__description-ex{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.service__description-desarrollo{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+
+
+/* CURRICULUM */
+
+.resume__container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.resume__left{
+    flex-basis: 58%;
+    margin-right: 1.5rem;
+}
+
+.resume__timelines{
+    margin-bottom: 5rem;
+}
+
+.timelines__timeline{
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline__header{
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 2.5rem;
+}
+
+.timeline__year{
+    margin: 0.3rem 0;
+    line-height: 1.9rem;
+    font-size: 1.4rem;
+}
+
+.timeline__company{
+    display: block;
+    margin: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--color-company);
+}
+.timeline__company-aval{
+    display: block;
+    font-size: 1rem;
+}
+
+
+.timeline__description{
+    flex-basis: 70%;
+    padding-left: 2.5rem;
+    padding-right: 1.5rem;
+}
+
+.timeline__title{
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.timeline__text{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.timeline__divider{
+    position: absolute;
+    top: 0;
+    left: 30%;
+    bottom: -1.8rem;
+    width: 1px;
+    background-color: var(--color-background-scrollbar);
+}
+
+.timeline__divider::before{
+    content: "";
+    position: absolute;
+    margin-top: 0.4rem;
+    margin-left: -0.8rem;
+
+    width: 1.7rem;
+    height: 1.7rem;
+    background-color: var(--color-secondary);
+    border-radius: 10rem;
+    opacity: 0.25;
+}
+
+.timeline__divider::after{
+    content: "";
+    position: absolute;
+    margin-top: 0.8rem;
+    margin-left: -0.4rem;
+
+    width: 0.9rem;
+    height: 0.9rem;
+    background-color: var(--color-principal);
+    border-radius: 10rem;
+    border: 2px solid var(--color-secondary);
+    opacity: 1;
+}
+
+
+.resume__right{
+    flex-basis: 41%;
+    padding: 0 1.5rem;
+}
+
+.resume__skills{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.skills__title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills__text{
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.skills__number{
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-subtitles);
+}
+
+.skills__progressbar{
+    height: 1rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 1rem;
+    background-color: var(--color-principal);
+    margin-bottom: 1.5rem;
+}
+
+.skills__percentage{
+    width: 40%;
+    height: 0.8rem;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-principal);
+    border-radius: 1rem;
+}
+
+.skills__percentage--p1{
+    width: 95%;
+}
+
+.skills__percentage--p2{
+    width: 65%;
+}
+
+.skills__percentage--p3{
+    width: 80%;
+}
+
+.skills__percentage--p4{
+    width: 90%;
+}
+
+.skills__percentage--p5{
+    width: 95%;
+}
+
+.skills__percentage--p6{
+    width: 85%;
+}
+
+.skills__percentage--p7{
+    width: 99%;
+}
+
+.skills__percentage--p8{
+    width: 79%;
+}
+
+/* AREA CONOCIMIENTOS */
+
+.knowledges__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.knowledges__option{
+    padding: 0.5rem 1rem;
+    margin: 0.3rem 0.3rem;
+    font-size: 1.4rem;
+    background-color: var(--color-secondary);
+    border-radius: 0.3rem;
+    color: var(--color-principal);
+}
+
+/* CERTIFICADOS */
+.certificates__container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;   
+}
+
+.certificates__certificate{
+    flex-basis: calc(50% - 3rem);
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 0.8rem;
+    justify-content: center;/* hago que se centre horizontalmente */
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 1);
+    border: 2px solid var(--color-secondary);
+
+    /* display: flex; */
+    /* flex-direction: row; */ 
+}
+
+
+.certificate__logo{
+    padding: 2.5rem; 
+}
+
+
+.certificate__image--1{
+    margin: auto;
+    width: 20rem;
+    height: 10rem;
+}
+
+.certificate__content{
+    padding: 2rem 2.5rem;
+ 
+}
+
+.certificate__title{
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    
+}
+
+.certificate__id{
+    display: block;
+    margin: 0.3rem;
+    font-size: 1.3rem;
+    color: var(--color-subtitles);
+    text-align: center;
+}
+
+.certificate__date{
+    font-size: 1rem;
+    color: var(--color-subtitles);
+    text-align: center;
+}
+
+/* PORTFOLIO */
+
+.portfolio__navbar{
+    margin-bottom: 3rem;
+}
+
+.portfolio__menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /*hace que se hay muchos elementos hagan un salto de fila*/
+    gap: 1.5rem;
+}
+
+.portfolio__option{
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+.portfolio__option--active{
+    opacity: 1;
+}
+
+.portfolio__link{
+    cursor: pointer;
+    color: var(--color-icon);
+}
+
+.portfolio__link:hover{
+    color: var(--color-secondary);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio__gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.gallery__item{
+    position: relative;
+    flex-basis: 33%;
+    padding: 0.7rem;
+}
+
+.gallery__container-image{
+    overflow: hidden; /*con esto logro que cuando haga una transform el zum solo se genere dentro del contenedor*/
+}
+
+.gallery__image{
+    width: 30rem;
+    height: 30rem;
+    transition: all 300ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__image{
+    transform: scale(1.1);
+
+}
+
+.gallery__title{
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+    font-weight: bold;
+}
+
+.gallery__icon{
+    opacity: 0;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 3rem;
+
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+    transition: all 450ms ease-in-out;
+}
+
+.gallery__category{
+    opacity: 0;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.2rem 0.7rem;
+    font-size: 1.1rem;
+
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    transition: all 450ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__icon,
+.gallery__item:hover .gallery__category{
+    opacity: 1;
+}
+
+
+
+/* PAGINA DE CONTACTO */
+
+.contact__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact__info{
+flex-basis: 33%;
+padding: 0 1.5rem;
+}
+
+.contact__data{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: var(--color-background-contact);
+    border: 1px solid var(--color-border-reviews);
+}
+
+.contact__icon{
+    font-size: 3.3rem;
+    color: var(--color-secondary);
+}
+
+.contact__subtitle{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact__form-box{
+flex-basis: 66%;
+padding: 0 1.5rem;
+}
+
+.form__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.form__left{
+    flex-basis: 47%;
+    margin-right: 1.5rem;
+}
+
+.form__group{
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.form__input{
+    position: relative;
+    width: 100%;
+    height: 4.2rem;
+    display: block;
+    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+    border: 0.2rem solid var(--color-border-reviews);
+    border-radius: 0.5rem;
+    outline: none;
+    box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.10);
+    background: 0 0 ;
+    background-color: transparent;
+   
+}
+
+.form__input:focus{
+    border: 0.2rem solid var(--color-secondary);
+}
+
+.form__label{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    color: var(--color-company);
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+}
+
+.form__input:focus~label,
+.form__input:not(:placeholder-shown)~label{
+    top: -2rem;
+    left: 0;
+    z-index: 1;
+    font-size: 1.3rem;
+    color: var(--color-secondary);
+}
+
+.form__input::-webkit-input-placeholder{
+    color: transparent;
+}
+.form__input::-moz-placeholder{
+    color: transparent;
+}
+
+.form__right{
+    flex-basis: 50%;
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.form__group--textarea{
+    height: 100%;
+}
+
+
+
+.form__input--textarea{
+    display: block;
+    resize: none;
+    height: 100%;
+}
+
+.form__button{
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: 0.2rem solid var(--color-secondary);
+    color: var(--color-titles);
+    background-color: var(--color-principal);
+    border-radius: 3rem;
+    box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.22);
+     cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.form__button:hover{
+    background-color: var(--color-secondary);
+    color: var(--color-principal);
+}
+
+.contact__map{
+width: 100%;
+min-height: 15rem;
+margin-bottom: 3.5rem;
+overflow: hidden;
+}
+
+.contact__iframe{
+    width: 100%;
+    height: 14rem;
+}
+
+
+
+
+
